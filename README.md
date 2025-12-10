@@ -4,7 +4,7 @@
 📂 TFTP Client Implementation (Python)
 본 프로젝트는 Python 소켓 API를 사용하여 TFTP (Trivial File Transfer Protocol) 클라이언트를 구현한 결과물입니다. RFC 1350 표준을 준수하며, UDP 기반의 비연결성 통신에서 신뢰성을 보장하기 위한 Stop-and-Wait 방식과 재전송(Retransmission) 로직을 포함하고 있습니다.
 
-1. 프로그램 개요
+# 1. 프로그램 개요
 파일명: my_tftp.py
 
 개발 언어: Python 3
@@ -23,8 +23,9 @@
 
 서버 에러 코드 파싱 및 처리
 
-#2. 실행 방법 (Usage)
+# 2. 실행 방법 (Usage)
 터미널에서 다음과 같은 형식으로 실행합니다.
+
 # 기본 포트(69) 사용 시
 $ python3 my_tftp.py <Host> <Operation> <Filename>
 
@@ -38,7 +39,7 @@ $ python3 my_tftp.py 203.250.133.88 get tftp.conf
 # 업로드 (PUT)
 $ python3 my_tftp.py genie.pcu.ac.kr put assignment.txt -p 69
 
-#3. 코드 구조 및 핵심 로직 분석
+# 3. 코드 구조 및 핵심 로직 분석
 이 코드는 크게 설정 및 상수 정의, 패킷 생성 함수, 메인 전송 로직으로 구성되어 있습니다.
 
 설정 및 상수 (Lines 11-29)
@@ -101,5 +102,5 @@ file.read(BLOCK_SIZE)로 파일을 읽어 create_data로 DATA 패킷을 전송�
 6) 에러 처리 (Lines 166-170)
 서버로부터 ERROR Opcode를 수신하면, 에러 코드와 메시지를 파싱 하여 출력하고 즉시 작업을 중단합니다.
 
-#4. 📌 핵심 요약
+# 4. 핵심 요약
 이 코드는 **"UDP 위에서 동작하지만, Stop-and-Wait ARQ 방식을 통해 데이터의 무결성과 순서를 보장하는 파일 전송 클라이언트"**입니다. 단순히 패킷을 보내는 것에 그치지 않고, 네트워크 지연이나 손실 상황을 대비한 재전송 로직과 예외 처리가 구현되어 있습니다.
