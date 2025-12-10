@@ -26,17 +26,17 @@
 # 2. 실행 방법 (Usage)
 터미널에서 다음과 같은 형식으로 실행합니다.
 
-# 기본 포트(69) 사용 시
+기본 포트(69) 사용 시
 $ python3 my_tftp.py <Host> <Operation> <Filename>
 
-# 특정 포트 지정 시 (-p 옵션)
+특정 포트 지정 시 (-p 옵션)
 $ python3 my_tftp.py <Host> <Operation> <Filename> -p <Port>
 
 **실행 예시:**
-# 다운로드 (GET)
+다운로드 (GET)
 $ python3 my_tftp.py 203.250.133.88 get tftp.conf
 
-# 업로드 (PUT)
+업로드 (PUT)
 $ python3 my_tftp.py genie.pcu.ac.kr put assignment.txt -p 69
 
 # 3. 코드 구조 및 핵심 로직 분석
