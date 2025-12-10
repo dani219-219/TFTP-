@@ -1,5 +1,4 @@
-# TFTP-
-2189041 성효진
+# TFTP-2189041 성효진
 
 📂 TFTP Client Implementation (Python)
 본 프로젝트는 Python 소켓 API를 사용하여 TFTP (Trivial File Transfer Protocol) 클라이언트를 구현한 결과물입니다. RFC 1350 표준을 준수하며, UDP 기반의 비연결성 통신에서 신뢰성을 보장하기 위한 Stop-and-Wait 방식과 재전송(Retransmission) 로직을 포함하고 있습니다.
