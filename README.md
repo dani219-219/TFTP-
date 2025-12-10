@@ -75,7 +75,7 @@ $ python3 my_tftp.py genie.pcu.ac.kr put assignment.txt -p 69
     DNS 조회 (Line 66): socket.gethostbyname(host)를 사용하여 도메인 이름을 IP 주소로 변환합니다.
 
 
-    소켓 생성 (Line 76): socket.SOCK_DGRAM을 사용하여 UDP 소켓을 생성하고, sock.settimeout(TIME_OUT)으로 타임아웃을 설정합니다.  
+    소켓 생성 (Line 76): socket.SOCK_DGRAM을 사용하여 UDP 소켓을 생성하고, sock.settimeout(TIME_OUT)으로 타임아웃을 설정합니다. /n  
 
 
 2) Operation 별 사전 준비 (Lines 87-111)
@@ -83,7 +83,7 @@ $ python3 my_tftp.py genie.pcu.ac.kr put assignment.txt -p 69
     GET 요청 시: 로컬에 동일한 파일이 존재하는지 확인하여 덮어쓰기 경고를 출력하고, 파일을 쓰기 모드(wb)로 엽니다.
 
   
-    PUT 요청 시: 로컬 파일이 실제로 존재하는지, 읽기 권한이 있는지 사전에 검사(os.access)하고, 읽기 모드(rb)로 엽니다.
+    PUT 요청 시: 로컬 파일이 실제로 존재하는지, 읽기 권한이 있는지 사전에 검사(os.access)하고, 읽기 모드(rb)로 엽니다. /n
 
 
 3) TID (Transfer ID) 핸들링 (Lines 131-139)
@@ -94,7 +94,7 @@ $ python3 my_tftp.py genie.pcu.ac.kr put assignment.txt -p 69
     Line 132: 서버로부터 첫 응답이 온 주소(current_server_address)를 server_tid 변수에 저장합니다.
 
   
-    Line 135: 이후 수신되는 패킷이 저장된 server_tid와 다를 경우, 잘못된 소스에서 온 패킷으로 간주하여 ERROR 5를 전송하고 무시합니다.
+    Line 135: 이후 수신되는 패킷이 저장된 server_tid와 다를 경우, 잘못된 소스에서 온 패킷으로 간주하여 ERROR 5를 전송하고 무시합니다. /n
 
 4) 신뢰성 보장: 타임아웃 및 재전송 (Lines 147-163)
 
@@ -104,7 +104,7 @@ $ python3 my_tftp.py genie.pcu.ac.kr put assignment.txt -p 69
     Line 147: socket.timeout 예외가 발생하면 retry_count를 증가시킵니다.
 
 
-    Line 158: MAX_TRY(5회)까지 응답이 없으면 last_packet_sent에 저장해 둔 마지막 패킷(RRQ/WRQ 또는 마지막 ACK/DATA)을 재전송합니다.
+    Line 158: MAX_TRY(5회)까지 응답이 없으면 last_packet_sent에 저장해 둔 마지막 패킷(RRQ/WRQ 또는 마지막 ACK/DATA)을 재전송합니다. /n
 
 5) 데이터 송수신 처리 (Lines 172-239)
 
@@ -126,13 +126,13 @@ $ python3 my_tftp.py genie.pcu.ac.kr put assignment.txt -p 69
     ACK 패킷을 수신하면 블록 번호를 확인합니다.
 
   
-    file.read(BLOCK_SIZE)로 파일을 읽어 create_data로 DATA 패킷을 전송합니다.
+    file.read(BLOCK_SIZE)로 파일을 읽어 create_data로 DATA 패킷을 전송합니다. /n
 
 6) 에러 처리 (Lines 166-170)
 
-    서버로부터 ERROR Opcode를 수신하면, 에러 코드와 메시지를 파싱 하여 출력하고 즉시 작업을 중단합니다.
+    서버로부터 ERROR Opcode를 수신하면, 에러 코드와 메시지를 파싱 하여 출력하고 즉시 작업을 중단합니다. /n
 
 
 # 4. 핵심 요약
   
-    이 코드는 **"UDP 위에서 동작하지만, Stop-and-Wait ARQ 방식을 통해 데이터의 무결성과 순서를 보장하는 파일 전송 클라이언트"**입니다. 단순히 패킷을 보내는 것에 그치지 않고, 네트워크 지연이나 손실 상황을 대비한 재전송 로직과 예외 처리가 구현되어     있습니다.
+    이 코드는 **"UDP 위에서 동작하지만, Stop-and-Wait ARQ 방식을 통해 데이터의 무결성과 순서를 보장하는 파일 전송 클라이언트"**입니다. 단순히 패킷을 보내는 것에 그치지 않고, 네트워크 지연이나 손실 상황을 대비한 재전송 로직과 예외 처리가 구현되있습니다.
